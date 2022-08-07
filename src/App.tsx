@@ -25,15 +25,15 @@ function App() {
         setAccounts(accs);
         setCurrentAcc(accs[0]);
       });
-      // ethereum.on("chainChanged", (chainId: string) => {
-      //   if (chainId === "0x1") {
-      //     toast("Ethereum mainnet connected successfully");
-      //   } else {
-      //     toast.error("Please connect to Ethereum Mainnet", {
-      //       theme: "dark",
-      //     });
-      //   }
-      // });
+      ethereum.on("chainChanged", (chainId: string) => {
+        if (chainId === "0x38") {
+          toast("Ethereum mainnet connected successfully");
+        } else {
+          toast.error("Please connect to Ethereum Mainnet", {
+            theme: "dark",
+          });
+        }
+      });
     } else {
       toast.error("Please install Metamask wallet in this browser", {
         theme: "dark",

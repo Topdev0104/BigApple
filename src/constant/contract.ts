@@ -1,4 +1,4 @@
-export const contract_address = "0xD5DB0755a390aea04188D7C0A37193e8F6b55695";
+export const contract_address = "0x8185E52857Ce7f4302836c3f43100E298Ee9CCcC";
 
 export const contract_abi = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
@@ -23,15 +23,15 @@ export const contract_abi = [
   },
   {
     inputs: [],
-    name: "getCurrentBNBAmount",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    name: "owner",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
-    name: "owner",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
+    name: "perCount",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
@@ -50,6 +50,13 @@ export const contract_abi = [
     type: "function",
   },
   {
+    inputs: [{ internalType: "uint256", name: "count", type: "uint256" }],
+    name: "setCount",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
     name: "transferOwnership",
     outputs: [],
@@ -58,14 +65,14 @@ export const contract_abi = [
   },
   {
     inputs: [],
-    name: "withdraw",
+    name: "withdrawAll",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
   },
 ];
 
-export const token_address = "0x5ed7CAb57C28b4e67ecCA283fB8bcB327C85c1a1";
+export const token_address = "0xF7FaB962B77bd518Efd8c5A8103cE711075379Dd";
 
 export const token_abi = [
   {

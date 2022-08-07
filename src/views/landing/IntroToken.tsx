@@ -28,7 +28,7 @@ const IntroToken: React.FC = () => {
   const [error, setError] = useState("");
   const { provider, currentAcc, web3 }: any = useEthContext();
   const [loading, setLoading] = useState(false);
-
+  const { ethereum }: any = window;
   useEffect(() => {
     if (web3) {
       const contract = new web3.eth.Contract(token_abi, token_address);
@@ -50,32 +50,38 @@ const IntroToken: React.FC = () => {
   const handleConnectWallet = async () => {
     if (provider) {
       if (currentAcc !== "") {
-        if (Number(state.bnb) >= 0.1 && Number(state.bnb) <= 5) {
-          setError("");
-          const contract = new web3.eth.Contract(
-            contract_abi,
-            contract_address
-          );
-          setLoading(true);
-          await contract.methods
-            .preSale(web3.utils.toWei(state.token.toString(), "ether"))
-            .send({
-              from: currentAcc,
-              value: web3.utils.toWei(state.bnb.toString(), "ether"),
-            })
-            .on("receipt", function (receipt: any) {
-              toast.success("Success!");
-              setLoading(false);
-            })
-            .on("error", function (error: any) {
-              toast(error);
-              setLoading(false);
-            });
+        if (Number(ethereum.chainId) !== 56) {
+          toast.error("Please connect to BSC Mainnet", {
+            theme: "dark",
+          });
         } else {
-          if (Number(state.bnb) < 0.1) {
-            setError("Min value: 0.1");
-          } else if (Number(state.bnb) > 5) {
-            setError("Max value: 5");
+          if (Number(state.bnb) >= 0.1 && Number(state.bnb) <= 5) {
+            setError("");
+            const contract = new web3.eth.Contract(
+              contract_abi,
+              contract_address
+            );
+            setLoading(true);
+            await contract.methods
+              .preSale(web3.utils.toWei(state.token.toString(), "ether"))
+              .send({
+                from: currentAcc,
+                value: web3.utils.toWei(state.bnb.toString(), "ether"),
+              })
+              .on("receipt", function (receipt: any) {
+                toast.success("Success!");
+                setLoading(false);
+              })
+              .on("error", function (error: any) {
+                toast(error);
+                setLoading(false);
+              });
+          } else {
+            if (Number(state.bnb) < 0.1) {
+              setError("Min value: 0.1");
+            } else if (Number(state.bnb) > 5) {
+              setError("Max value: 5");
+            }
           }
         }
       } else {
@@ -138,10 +144,8 @@ const IntroToken: React.FC = () => {
                 disabled={!currentAcc}
               />
               <span>BIGAPPE: {state.token}</span>
-              <Progressbar
-                progress={(100 / 100000000) * (100000000 - restTotal)}
-              />
-              <span>Total supply: {formatNumber(restTotal)}</span>
+              <Progressbar progress={(100 * restTotal) / 100000000} />
+              <span>Total supply: {formatNumber(100000000 - restTotal)}</span>
               <Button
                 loading={loading}
                 onClick={loading ? () => {} : handleConnectWallet}
