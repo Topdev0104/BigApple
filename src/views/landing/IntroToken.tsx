@@ -3,6 +3,7 @@ import { Header } from "layouts";
 import { BsPlayFill } from "react-icons/bs";
 import {
   ActionText,
+  AddressText,
   ErrorNotify,
   IntroActionWrapper,
   IntroCarWrapper,
@@ -10,6 +11,7 @@ import {
   IntroContent,
   IntroTextWrapper,
   IntroWrapper,
+  TokenText,
 } from "./styles";
 import { Container, Button, Progressbar, Input } from "components";
 import { useEthContext } from "context/EthereumContext";
@@ -144,8 +146,14 @@ const IntroToken: React.FC = () => {
                 disabled={!currentAcc}
               />
               <span>BIGAPPE: {state.token}</span>
-              <Progressbar progress={(100 * restTotal) / 100000000} />
-              <span>Total supply: {formatNumber(100000000 - restTotal)}</span>
+              <Progressbar
+                progress={(100 * (100000000 - restTotal)) / 100000000}
+              />
+              <span>Rest supply: {formatNumber(restTotal)}</span>
+              <TokenText>Contract Address</TokenText>
+              <AddressText>
+                0xF7FaB962B77bd518Efd8c5A8103cE711075379Dd
+              </AddressText>
               <Button
                 loading={loading}
                 onClick={loading ? () => {} : handleConnectWallet}

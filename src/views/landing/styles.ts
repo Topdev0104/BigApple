@@ -26,6 +26,12 @@ export const IntroWrapper = styled.div`
     background: linear-gradient(180deg, rgba(0, 14, 36, 0) 0%, #000e24 100%);
   }
 `;
+export const TokenText = styled.div`
+  text-align: center;
+`;
+export const AddressText = styled.div`
+  margin-top: 8px;
+`;
 
 export const IntroContent = styled.div`
   position: relative;
