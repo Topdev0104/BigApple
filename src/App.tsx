@@ -27,15 +27,15 @@ function App() {
       });
       ethereum.on("chainChanged", (chainId: string) => {
         if (chainId === "0x38") {
-          toast("Ethereum mainnet connected successfully");
+          toast("BSC Mainnet connected successfully.");
         } else {
-          toast.error("Please connect to Ethereum Mainnet", {
+          toast.error("Please connect to BSC Mainnet.", {
             theme: "dark",
           });
         }
       });
     } else {
-      toast.error("Please install Metamask wallet in this browser", {
+      toast.error("Please install Metamask wallet in this browser.", {
         theme: "dark",
       });
     }
