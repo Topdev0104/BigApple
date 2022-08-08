@@ -99,8 +99,8 @@ const IntroToken: React.FC = () => {
   const handleChange = (e: any) => {
     setState(
       e.target.name === "bnb"
-        ? { bnb: e.target.value, token: Number(e.target.value) * 5000 }
-        : { bnb: Number(e.target.value) / 5000, token: e.target.value }
+        ? { bnb: e.target.value, token: Number(e.target.value) * 3000 }
+        : { bnb: Number(e.target.value) / 3000, token: e.target.value }
     );
   };
   return (
