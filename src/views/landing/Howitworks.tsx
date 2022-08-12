@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Container } from "components";
 import {
   HowitworksVideoWrapper,
   HowitworksWrapper,
   PlayWrapper,
 } from "./styles";
-import videoPoster from "assets/image/trade.png";
-import { BsPlayFill } from "react-icons/bs";
-
+import { BsPlayFill, BsFillPauseFill } from "react-icons/bs";
+import useVideoPlayer from "context/videoPlayer";
+import video from "assets/video/bigapple.mp4";
 const Howitworks: React.FC = () => {
+  const videoElement = useRef(null);
+  const { playerState, togglePlay, handleOnTimeUpdate } =
+    useVideoPlayer(videoElement);
   return (
     <Container>
       <HowitworksWrapper id="howitworks">
         <h1>How it works ?</h1>
         <HowitworksVideoWrapper>
-          <video muted poster={videoPoster}>
-            <source src="/Videos/video1.mp4" type="video/mp4" />
-          </video>
-          <PlayWrapper>
+          <video
+            style={{ width: "100%" }}
+            src={video}
+            ref={videoElement}
+            onTimeUpdate={handleOnTimeUpdate}
+          />
+          <PlayWrapper onClick={togglePlay}>
             <Button className="fit-content border video-play">
-              <BsPlayFill color="#fff" size={50} />
+              {!playerState.isPlaying ? (
+                <BsPlayFill color="#fff" size={50} />
+              ) : (
+                <BsFillPauseFill color="#fff" size={50} />
+              )}
             </Button>
           </PlayWrapper>
         </HowitworksVideoWrapper>
