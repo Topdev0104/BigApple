@@ -106,7 +106,7 @@ const IntroToken: React.FC = () => {
     );
   };
   return (
-    <IntroWrapper>
+    <IntroWrapper id="introduction">
       <IntroContent>
         <Header />
         <Container>
@@ -119,7 +119,9 @@ const IntroToken: React.FC = () => {
                 }
               </p>
               <IntroActionWrapper>
-                <Button className="fit-content border">Contact us</Button>
+                <a href="#contact" style={{ textDecoration: "none" }}>
+                  <Button className="fit-content border">Contact</Button>
+                </a>
                 <a href="#howitworks">
                   <Button className="fit-content border play">
                     <BsPlayFill color="#fff" size={26} />

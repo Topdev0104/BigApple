@@ -31,6 +31,10 @@ export const TokenText = styled.div`
 `;
 export const AddressText = styled.div`
   margin-top: 8px;
+  @media screen and (max-width: 500px) {
+    text-align: center;
+    overflow-wrap: break-word;
+  }
 `;
 
 export const IntroContent = styled.div`
@@ -529,6 +533,7 @@ export const CommunityWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 150px;
+  padding-bottom: 10px;
   width: 100%;
   h1 {
     font-weight: 800;
@@ -609,7 +614,6 @@ export const CommunityCardWrapper = styled.div`
 export const CommunityIcon = styled.div``;
 
 export const ContactSectionWrapper = styled.div`
-  margin-top: 30px;
   background: linear-gradient(180deg, #000e24 0%, #000000 100%);
   padding: 200px 0 100px;
   position: relative;

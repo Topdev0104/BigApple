@@ -25,7 +25,9 @@ const FeatureToken: React.FC = () => {
                   "As a crypto price become more stabile, crypto is the top volatile market in history .BigApple it has limited supply token and it’s demand is increasing it can reach $3 to 10 in year 22-23."
                 }
               </p>
-              <Button className="fit-content border">Get Tokens</Button>
+              <a href="#introduction" style={{ textDecoration: "none" }}>
+                <Button className="fit-content border">Get Tokens</Button>
+              </a>
             </FeatureText>
           </FeatureTextWrapper>
         </Container>
