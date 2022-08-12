@@ -16,17 +16,19 @@ const Contact: React.FC = () => {
         <Container>
           <ContactFormContainer>
             <h2>Contact to BigAppe</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. has been the industry's standard dummy text ever since
-              the 1500s,
-            </p>
+            <p>For all enquiries, please email us using the form below.</p>
             <Input
-              mode="input"
+              mode="email"
               className="contact-input"
+              required
               onChange={handleChange}
+              placeholder="Email."
             />
-            <Input mode="textarea" onChange={handleChange} />
+            <Input
+              mode="textarea"
+              onChange={handleChange}
+              placeholder="Messages."
+            />
             <Button className="fit-content border">Send message</Button>
           </ContactFormContainer>
         </Container>

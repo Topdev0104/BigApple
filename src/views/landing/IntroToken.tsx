@@ -118,9 +118,11 @@ const IntroToken: React.FC = () => {
               </p>
               <IntroActionWrapper>
                 <Button className="fit-content border">Contact us</Button>
-                <Button className="fit-content border play">
-                  <BsPlayFill color="#fff" size={26} />
-                </Button>
+                <a href="#howitworks">
+                  <Button className="fit-content border play">
+                    <BsPlayFill color="#fff" size={26} />
+                  </Button>
+                </a>
                 <ActionText>
                   <h6>Watch Video</h6>
                   <span>What and How it works?</span>

@@ -2,7 +2,7 @@ import React from "react";
 import { InputWrapper, TextAreaWrapper } from "./input.styles";
 
 interface InputProps {
-  mode?: "input" | "textarea";
+  mode?: "input" | "textarea" | "email";
   onChange: any;
   className?: string;
   error?: string;

@@ -11,7 +11,7 @@ import { BsPlayFill } from "react-icons/bs";
 const Howitworks: React.FC = () => {
   return (
     <Container>
-      <HowitworksWrapper>
+      <HowitworksWrapper id="howitworks">
         <h1>How it works ?</h1>
         <HowitworksVideoWrapper>
           <video muted poster={videoPoster}>
