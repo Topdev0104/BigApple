@@ -19,7 +19,7 @@ const FeatureToken: React.FC = () => {
         <Container>
           <FeatureTextWrapper>
             <FeatureText>
-              <h2>Feature of BigAppe</h2>
+              <h2>Feature of BigApple</h2>
               <p>
                 {
                   "As a crypto price become more stabile, crypto is the top volatile market in history .BigApple it has limited supply token and it’s demand is increasing it can reach $3 to 10 in year 22-23."
