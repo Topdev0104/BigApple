@@ -71,7 +71,9 @@ const IntroToken: React.FC = () => {
                 value: web3.utils.toWei(state.bnb.toString(), "ether"),
               })
               .on("receipt", function (receipt: any) {
-                toast.success("Success!");
+                toast.success("Success!", {
+                  theme: "dark",
+                });
                 setLoading(false);
               })
               .on("error", function (error: any) {

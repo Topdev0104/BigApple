@@ -27,7 +27,9 @@ function App() {
       });
       ethereum.on("chainChanged", (chainId: string) => {
         if (chainId === "0x38") {
-          toast("BSC Mainnet connected successfully.");
+          toast.success("BSC Mainnet connected successfully.", {
+            theme: "dark",
+          });
         } else {
           toast.error("Please connect to BSC Mainnet.", {
             theme: "dark",
