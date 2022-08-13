@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
       <ContactFormWrapper>
         <Container>
           <ContactFormContainer>
-            <h2>Contact to BigAppe</h2>
+            <h2>Contact to BigApple</h2>
             <p>For all enquiries, please email us using the form below.</p>
             <Input
               mode="email"

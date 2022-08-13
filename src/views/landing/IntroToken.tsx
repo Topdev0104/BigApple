@@ -112,7 +112,7 @@ const IntroToken: React.FC = () => {
         <Container>
           <IntroContainer>
             <IntroTextWrapper>
-              <h1>BigAppe Tokens</h1>
+              <h1>BigApple Tokens</h1>
               <p>
                 {
                   "BigApple token is a decentralized, business community- building cryptocurrency. That is an experiment develop with the Binance Ecosystem. This token build on top of binance blockchain Network like many others token."
@@ -134,7 +134,7 @@ const IntroToken: React.FC = () => {
               </IntroActionWrapper>
             </IntroTextWrapper>
             <IntroCarWrapper>
-              <p>BigAppe</p>
+              <p>BigApple</p>
               <ErrorNotify visible={error !== ""}>{error}</ErrorNotify>
               <Input
                 type="number"
@@ -151,7 +151,7 @@ const IntroToken: React.FC = () => {
                 name="token"
                 disabled={!currentAcc}
               />
-              <span>BIGAPPE: {state.token}</span>
+              <span>BIGAPPLE: {state.token}</span>
               <Progressbar
                 progress={(100 * (100000000 - restTotal)) / 100000000}
               />
