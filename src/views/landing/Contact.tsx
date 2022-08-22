@@ -8,17 +8,34 @@ import {
 import contactImg from "assets/image/earth.png";
 import { Button, Container, Input } from "components";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Contact: React.FC = () => {
   const [email, setEmail] = useState("");
   const [context, setContext] = useState("");
   const onSendMessage = async () => {
-    toast.success("Successfully sent.", {
-      theme: "dark",
-    });
-    setEmail("");
-    setContext("");
+    if (email === "" || context === "") {
+      toast.error("Please fill input.", {
+        theme: "dark",
+      });
+    } else {
+      setEmail("");
+      setContext("");
+      const data = {
+        email: email,
+        context: context,
+      };
+      axios
+        .post("https://bigapple-backend.vercel.app/mint/mail", data)
+        .then((res) => {
+          toast.success("Successfully sent.", {
+            theme: "dark",
+          });
+        })
+        .catch((err) => console.log(err));
+    }
   };
+
   return (
     <ContactSectionWrapper id="contact">
       <ContactFormWrapper>
