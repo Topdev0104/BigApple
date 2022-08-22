@@ -49,54 +49,54 @@ const IntroToken: React.FC = () => {
     }
   });
 
-  // const handleConnectWallet = async () => {
-    // if (provider) {
-      // if (currentAcc !== "") {
-        // if (Number(ethereum.chainId) !== 56) {
-          // toast.error("Please connect to BSC Mainnet", {
-            // theme: "dark",
-          // });
-        // } else {
-          // if (Number(state.bnb) >= 0.1 && Number(state.bnb) <= 5) {
-            // setError("");
-            // const contract = new web3.eth.Contract(
-              // contract_abi,
-              // contract_address
-            // );
-            // setLoading(true);
-            // await contract.methods
-              // .preSale(web3.utils.toWei(state.token.toString(), "ether"))
-              // .send({
-                // from: currentAcc,
-                // value: web3.utils.toWei(state.bnb.toString(), "ether"),
-              // })
-              // .on("receipt", function (receipt: any) {
-                // toast.success("Success!", {
-                  // theme: "dark",
-                // });
-                // setLoading(false);
-              // })
-              // .on("error", function (error: any) {
-                // toast(error);
-                // setLoading(false);
-              // });
-          // } else {
-            // if (Number(state.bnb) < 0.1) {
-              // setError("Min value: 0.1");
-            // } else if (Number(state.bnb) > 5) {
-              // setError("Max value: 5");
-            // }
-          // }
-        // }
-      // } else {
-        // await provider.request({ method: `eth_requestAccounts` });
-      // }
-    // } else {
-      // toast.error("Please install Metamask wallet in this browser", {
-        // theme: "dark",
-      // });
-    // }
-  // };
+  const handleConnectWallet = async () => {
+    if (provider) {
+      if (currentAcc !== "") {
+        if (Number(ethereum.chainId) !== 56) {
+          toast.error("Please connect to BSC Mainnet", {
+            theme: "dark",
+          });
+        } else {
+          if (Number(state.bnb) >= 0.1 && Number(state.bnb) <= 5) {
+            setError("");
+            const contract = new web3.eth.Contract(
+              contract_abi,
+              contract_address
+            );
+            setLoading(true);
+            await contract.methods
+              .preSale(web3.utils.toWei(state.token.toString(), "ether"))
+              .send({
+                from: currentAcc,
+                value: web3.utils.toWei(state.bnb.toString(), "ether"),
+              })
+              .on("receipt", function (receipt: any) {
+                toast.success("Success!", {
+                  theme: "dark",
+                });
+                setLoading(false);
+              })
+              .on("error", function (error: any) {
+                toast(error);
+                setLoading(false);
+              });
+          } else {
+            if (Number(state.bnb) < 0.1) {
+              setError("Min value: 0.1");
+            } else if (Number(state.bnb) > 5) {
+              setError("Max value: 5");
+            }
+          }
+        }
+      } else {
+        await provider.request({ method: `eth_requestAccounts` });
+      }
+    } else {
+      toast.error("Please install Metamask wallet in this browser", {
+        theme: "dark",
+      });
+    }
+  };
 
   const handleChange = (e: any) => {
     setState(
@@ -157,13 +157,13 @@ const IntroToken: React.FC = () => {
               />
               <span>Rest supply: {formatNumber(restTotal)}</span>
 
-              // <Button
+              {/* // <Button
                 // loading={loading}
                 // onClick={loading ? () => {} : handleConnectWallet}
                 // className="intro-form-button"
               // >
                 // {currentAcc ? "Get Tokens" : "Connect Wallet"}
-              // </Button>
+              // </Button> */}
             </IntroCarWrapper>
           </IntroContainer>
         </Container>
