@@ -157,13 +157,13 @@ const IntroToken: React.FC = () => {
               />
               <span>Rest supply: {formatNumber(restTotal)}</span>
 
-              {/* // <Button
-                // loading={loading}
-                // onClick={loading ? () => {} : handleConnectWallet}
-                // className="intro-form-button"
-              // >
-                // {currentAcc ? "Get Tokens" : "Connect Wallet"}
-              // </Button> */}
+              <Button
+                loading={loading}
+                onClick={loading ? () => {} : handleConnectWallet}
+                className="intro-form-button"
+              >
+                {currentAcc ? "Get Tokens" : "Connect Wallet"}
+              </Button>
             </IntroCarWrapper>
           </IntroContainer>
         </Container>
