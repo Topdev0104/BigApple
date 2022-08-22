@@ -13,14 +13,14 @@ import axios from "axios";
 const Contact: React.FC = () => {
   const [email, setEmail] = useState("");
   const [context, setContext] = useState("");
+  const [loading, setLoading] = useState(false);
   const onSendMessage = async () => {
     if (email === "" || context === "") {
       toast.error("Please fill input.", {
         theme: "dark",
       });
     } else {
-      setEmail("");
-      setContext("");
+      setLoading(true);
       const data = {
         email: email,
         context: context,
@@ -31,6 +31,9 @@ const Contact: React.FC = () => {
           toast.success("Successfully sent.", {
             theme: "dark",
           });
+          setLoading(false);
+          setEmail("");
+          setContext("");
         })
         .catch((err) => console.log(err));
     }
@@ -57,7 +60,11 @@ const Contact: React.FC = () => {
               placeholder="Messages."
               onChange={(e: any) => setContext(e.target.value)}
             />
-            <Button className="fit-content border" onClick={onSendMessage}>
+            <Button
+              loading={loading}
+              className="fit-content border"
+              onClick={onSendMessage}
+            >
               Send message
             </Button>
           </ContactFormContainer>
