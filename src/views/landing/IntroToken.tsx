@@ -156,7 +156,8 @@ const IntroToken: React.FC = () => {
                 progress={(100 * (100000000 - restTotal)) / 100000000}
               />
               <span>Rest supply: {formatNumber(restTotal)}</span>
-
+              <TokenText>Token address</TokenText>
+              <AddressText>{token_address}</AddressText>
               <Button
                 loading={loading}
                 onClick={loading ? () => {} : handleConnectWallet}
